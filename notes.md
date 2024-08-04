@@ -6,6 +6,8 @@ End:
 
 Sessions:
 - 07/17/2024
+- ...
+- 09/04/2024
 
 # OOP in PHP
 
@@ -56,3 +58,20 @@ The recomended one is the lastone, but we should also catch the error and print 
 so we don't show anything private or important in the error to the user.
 
 The try catch part usage is the general syntax in almost all languages with the php extra stuff.
+
+## Cookies & Sessions
+
+Cookies are a way to store data locally and temporaly in the web for the users.
+Can be accessed by using $\_COOKIE, another global key-array, but you can set them by using:
+setcookie('name', 'value');
+
+Now we can use sessions, that are a more secure way of storing data for a user, in a 'session' like after login in or generally information 
+that we shouldn't let have the user have it for security propourses. Theese tend to be way smaller than cookies, mainly because they can affect a 
+lot of the performance. To use them we use another global key-array $\_SESSION, but we can set keys without a function, but we have to start each time the session 
+and destroy it once it's over with:
+session\_start()
+session\_destroy()
+
+But if our app demands that we have to avoid using cookies and only use sessions, we can deactivate them with some config in the php.ini and 
+by using the session\_id(). But theese kind of stuff has a lot of problemns like resuing login data, not beeing usable in anything but php itself, and others.
+
