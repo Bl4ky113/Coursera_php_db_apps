@@ -1,0 +1,3 @@
+
+ALTER TABLE autos
+ADD COLUMN img_url VARCHAR(512);
