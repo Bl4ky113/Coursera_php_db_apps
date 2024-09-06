@@ -28,25 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $msg = 'Mileage and year must be numeric';
         $error = true;
     }
-
-    if ($_POST['img'] != '') {
-        $url_headers = @get_headers($_POST['img']);
-
-        if(!$url_headers || !strpos($url_headers[0], '200') || !strpos($url_headers[3], 'image/')) {
-            //header('location: autos.php?who=' . urlencode($_GET['who']) . '&msg=' . base64_encode('image url must be valid'));
-            //return 1;
-            $msg = 'Image url must be valid';
-            $error = true;
-        } 
-    }
     
     if ($error == false) {
-        $add_car_stmt = $pdo->prepare('insert into autos (make, year, mileage, img_url) values (:mk, :yr, :ml, :img)');
+        $add_car_stmt = $pdo->prepare('INSERT INTO autos (make, year, mileage) VALUES (:mk, :yr, :ml)');
+        $make = str_replace(';', '', $_POST['make']);
         $add_car_stmt->execute(array(
-            ':mk' => $_POST['make'],
+            ':mk' => $make,
             ':yr' => $_POST['year'],
             ':ml' => $_POST['mileage'],
-            ':img' => $_POST['img']
         ));
 
         //header('location: autos.php?who=' . urlencode($_GET['who']) . '&msg=' . base64_encode('record inserted'));
@@ -115,16 +104,6 @@ if (isset($_GET['msg'])) {
                 placeholder="Car's Mileage"
                 type="text">
         </div>
-        <div>
-            <label for="img">
-                Image URL:
-            </label>
-            <input 
-                id="img"
-                name="img"
-                placeholder="Car's Image URL"
-                type="text">
-        </div>
         <input
             value="Add"
             type="submit">
@@ -143,13 +122,6 @@ if ($autos_len > 0) {
     while ($auto_row = $autos_stmt->fetch()) {
 ?>
         <li>
-            <?php if ($auto_row['img_url'] != '') { ?>
-                <img 
-                    width=100
-                    height=100
-                    src="<?= htmlentities($auto_row['img_url'])?>"
-                    alt="car image">
-            <?php }?>
             <?= htmlentities($auto_row['year']) ?>
             <?= htmlentities($auto_row['make']) ?> /
             <?= htmlentities($auto_row['mileage']) ?>
@@ -161,5 +133,6 @@ if ($autos_len > 0) {
         <li>No automobiles available</li>
 <?php } ?>
     </ul>
+    <script src="./src/js/script.js"></script>
 </body>
 </html>

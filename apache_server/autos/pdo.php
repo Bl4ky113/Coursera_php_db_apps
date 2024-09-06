@@ -8,5 +8,5 @@ $pdo = new PDO(
     'zap'
 );
 
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 ?>

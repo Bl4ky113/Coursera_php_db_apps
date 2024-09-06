@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     error_log("Login success " . $_POST['email']);
     $_SESSION['email'] = $_POST['email'];
 
-    header('Location: view.php');
+    header('Location: ./autos/view.php');
     return 0;
 }
 ?>

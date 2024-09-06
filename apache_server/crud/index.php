@@ -20,19 +20,19 @@
       First things first, 
       <a
         href="./login.php">
-        Please Log In
+        Please log in
       </a>
     </p>
     <p>
       Then, you can enter in 
-      <a href="./view.php">
+      <a href="./autos/view.php">
         view.php
       </a>. 
       Otherwise, you will get an error
     </p>
     <p>
       From there you can also access 
-      <a href="./add.php">
+      <a href="./autos/add.php">
         add.php
       </a>. 
       But, you will get the same error if you didn't log in
