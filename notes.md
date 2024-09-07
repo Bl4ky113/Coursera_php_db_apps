@@ -2,12 +2,14 @@
 # Building Database Applications in PHP
 
 Start: 07/17/2024
-End:
+End: 09/06/2024
 
 Sessions:
 - 07/17/2024
 - ...
-- 09/04/2024
+- 08/04/2024
+- ...
+- 09/06/2024
 
 # OOP in PHP
 
@@ -94,3 +96,6 @@ might not even work at all for the limit of the length for an url in the browser
 
 So the best thing to do, is avoid passing a lot of data, and if you need to, try to pass a reference, id or anything that let 
 you get and reconstruct that data on the GET view.
+
+
+GOD I HATE/LOVE ZROK
